@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "Csharp"
+		},
+		{
+			"path": "Fsharp"
+		}
+	],
+	"settings": {
+		"files.autoSave": "afterDelay"
+	},
+	"extensions": {
+		"recommendations": [
+            "ms-vscode.csharp",
+            "Ionide.Ionide-fsharp",
+            "danmannock.vscode-fsharp-refactor",
+			],
+	}
+}
