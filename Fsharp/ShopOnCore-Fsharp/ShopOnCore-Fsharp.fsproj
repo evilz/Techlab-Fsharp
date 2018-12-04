@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <RootNamespace>ShopOnCore_Fsharp</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Types.fs" />
+        <Compile Include="Repository.fs" />
+        <Compile Include="Logic.fs" />
+        <Compile Include="WebApi.fs" />
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Giraffe" Version="3.4.0" />
+        <PackageReference Update="FSharp.Core" Version="4.5.4" />
+    </ItemGroup>
+
+</Project>

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ShopOnCore.Discount;
 using ShopOnCore.Products;
 using ShopOnCore.Users;

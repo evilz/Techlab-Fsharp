@@ -19,6 +19,7 @@ namespace ShopOnCore.ShoppingCart
 
         public void Add(ShoppingCartItem shoppingCartItem)
         {
+            // TODO : update quantity if exists ...
             _items.Add(shoppingCartItem);
         }
 

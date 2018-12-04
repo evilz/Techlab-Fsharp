@@ -13,7 +13,7 @@ namespace ShopOnCore.Products
                 {
                     IProduct product;
                     switch (i % 4)
-                    {
+                                         {
                         case 0:
                             product = new BeautyPersonalCare {Id = new ProductId(i), Price = 3 * i, Name = $"BeautyPersonalCare_{i}", Brand = "Brand", Attributes = i.ToString()};
                             break;

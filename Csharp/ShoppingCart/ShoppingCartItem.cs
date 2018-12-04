@@ -1,4 +1,3 @@
-using System;
 using ShopOnCore.Products;
 
 namespace ShopOnCore.ShoppingCart
@@ -14,7 +13,7 @@ namespace ShopOnCore.ShoppingCart
             Quantity = quantity;
         }
         
-        public Decimal TotalPrice => Quantity * Product.Price;
+        public decimal TotalPrice => Quantity * Product.Price;
 
         public override string ToString()
         {

@@ -1,5 +1,3 @@
-using System;
-
 namespace ShopOnCore.Products
 {
     public abstract class BaseProduct : IProduct

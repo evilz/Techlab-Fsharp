@@ -11,6 +11,11 @@ namespace ShopOnCore.Products
             _id = id;
         }
 
+        public override string ToString()
+        {
+            return _id.ToString();
+        }
+
         public bool Equals(ProductId other)
         {
             if (ReferenceEquals(null, other)) return false;
