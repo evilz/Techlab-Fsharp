@@ -5,14 +5,9 @@ theme: Night
 
 ---
 
-## Introduction TODO
+## Introduction
 
-Do you want to learn F# and Functional Programming? Well, you better start coding! Learning a new programming
-language is not easy, on top of reading a lot you need to practice even more.
-This workshop is designed to teach you some of the basics of F# and Functional Programming by combining theory
-and practice. The course is split into 4 modules, each of them contains a presentation (theory) and one exercise
-(practice). You can find exercises for each module in this document, for the presentation and source code, refer to
-the section “Source Code, Additional Material and Updates”.
+Dans cette atelier nous allons créer une application Web en F# permettant la gestion d'un panier pour un site de e-commerce
 
 ---
 
@@ -128,15 +123,13 @@ let john = create "John" "Doe"
 
 # F# types
 
-| | |
-|--------|--------|
-| Record | Tuple |
-| Discriminated Unions | Enum types |
-| Option Types | Result Type |
-| Units of measure | Type Abbreviations|
-| POO (Class & interface) | Generic types | 
-| Collection : List / Array / Seq | |
-| | |
+- Record
+- Tuple
+- Discriminated Unions
+- Enum types
+- Type Abbreviations
+- Units of measure
+- Collection : (List / Array / Seq)
 
 ---
 
@@ -167,7 +160,7 @@ let (a, b) = (1, 2)
 
 ```
 
----
+--
 
 # Exercice 1
 ## record
@@ -178,6 +171,7 @@ Questions :
 
 - Comment avez-vous modelisez l'interface ?
 - Comment avez-vous modelisez la class de base ?
+- Dans le cas ou deux `Book` possèdent exactement les mêmes valeurs sont ils égaux ?
 
 ---
 
@@ -245,34 +239,95 @@ let mail:EmailAddress = country  // possible car ce sont des string
 # Exercice 2
 ## Union types
 
+http://bit.ly/2FdkqCP
 
 ---
 
-Customer
-orders
+## Units of measure
+
+Les nombres peuvent avoir des `unités de mesure`, ce qui permet au compilateur de vérifier que les relations arithmétiques sont éxécutées sont les bons types.
+
+```
+// Distance
+[<Measure>] type m
+[<Measure>] type cm
+
+let x = 1.0<cm>
+let y 1.0<m>
+let z = x + y // Erreur: On ne peut pas aditionner des cm et m
+```
+
+--
+
+# Exercice 3
+## Units of measure
+
+http://bit.ly/2Res2v1
+
+---
+
+## Collections
+
+Trois types de collections sont souvent utilisées en F#
+
+- **List** :    liste chaînée
+- **Array** :   tableau
+- **Seq** :     IEnumerable
+
+
+--
+
+## Lists vs Arrays vs Sequences
 
 ```fsharp
-type Customer = {
-    Id: Guid
-    Name: string
-    Orders: order list
-    }
+// list
+let myList = [1; 2]
 
+// array
+let myArray = [|1; 2|]
 
-type OrderLine = {
-    product: Product
-    qty: int 
-}
-
-type Order = {
-    Id: Guid
-    Items: list OrderLine
-}
-
-
-type Product = {
-    Id: Guid
-    Name: string
-    Price: Decimal
-}
+// Seq
+let mySeq = seq { yield 1; yield 2 }
 ```
+
+--
+
+## La liste F#
+
+Le liste est une liste chaîné
+
+![list](list.png)
+
+--
+
+## La liste F#
+
+```fsharp
+let numbers = [2; 3; 4] // créer une liste
+let newNumbers = 1 :: numbers // Ajouter 1 en tête
+let twoLists = numbers @ [5; 6] // concaténer deux listes
+
+let empty = []
+let ns = [1 .. 1000]
+let odds = [1 .. 2 .. 1000]
+
+let oddsWithZero = [ yield 0 
+                     yield! odds ]
+
+let gen = [ for n in numbers do 
+             	    if n%3 = 0 then 
+                      yield n * n ]
+```
+
+
+--
+
+# Exercice 4
+## list
+
+http://bit.ly/2LUUxYS
+
+
+---
+
+# Question ?
