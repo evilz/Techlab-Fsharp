@@ -11,7 +11,11 @@ let getCart = ShoppingCartService.getShoppingCartFor now Repository.ShoppingCart
 
 let webApp =
     choose [
-        route "/api/ShoppingCart" >=>  WebApi.getShoppingCartHandler getCart  ]
+        GET >=> choose [
+            route "/api/ShoppingCart" >=>  WebApi.getShoppingCartHandler getCart
+        ]
+    ]
+    
 
 type Startup() =
     member __.ConfigureServices (services : IServiceCollection) =
