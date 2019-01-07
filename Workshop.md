@@ -296,7 +296,7 @@ let mySeq = seq { yield 1; yield 2 }
 
 Le liste est une liste chaîné
 
-![list](list.png)
+![list](list.PNG)
 
 --
 
