@@ -27,8 +27,8 @@ the section “Source Code, Additional Material and Updates”.
 # F# basic
 
 - Value binding
+- Type inference
 - Namespace / Module
-- type inference => https://fsharpforfunandprofit.com/posts/type-inference/
 
 --
 
@@ -43,6 +43,9 @@ let x = 1 // OK
 x = x + 1 // ERREUR => x est immutable !!!
 let y = x + 1  // OK
 let x = x + 1  // Shadow
+
+let add x y = x + y     // fonction à deux parametres 
+
 ```
 
 --
@@ -102,12 +105,9 @@ En F#, un `namespace` ou un `module`est un regroupement de code (fonction, type,
 ## Namespace et Module
 
 ```fsharp
-// =========================
 // File: Person.fs
-// =========================
-namespace Example
+namespace Model
 
-// declare a module for functions that work on the type
 module Person = 
 
     // constructor
@@ -117,10 +117,14 @@ module Person =
     // method that works on the type
     let fullName {First=first; Last=last} = 
         first + " " + last
+
+
+open Person
+
+let john = create "John" "Doe" 
 ```
 
 ---
-
 
 # F# types
 
@@ -177,6 +181,72 @@ Questions :
 
 ---
 
+## Discriminated Unions
+
+
+Les unions discriminées permmettent de définir différent cas nommés, chacun avec des types et des valeurs différentes.
+
+```ml
+type Shape =
+  | Rectangle of width : float * length : float
+  | Circle of radius : float
+  | Prism of width : float * float * height : float
+```
+
+--
+
+## Enum types
+
+Les énumérations sont des types intégraux où les étiquettes sont affectées à un sous-ensemble des valeurs. (comme en C#)
+
+```fsharp
+// Declaration of an enumeration.
+type Color =
+   | Red = 0
+   | Green = 1
+   | Blue = 2
+// Use of an enumeration.
+let col1 : Color = Color.Red
+```
+
+--
+
+## Single case union types
+
+Il est possible d'utiliser une unions discriminées avec un seul cas qui sera utilisé pour encapsuler un type. 
+
+```ml
+type EmailAddress = EmailAddress of string
+
+let email = EmailAddress "some.amazing@email.com"
+
+// Destructuration
+let (EmailAddress rawValue) = email
+```
+
+--
+
+## Type Abbreviations
+
+Un abréviation de type est un alias de nom pour un type.
+
+```fsharp
+type EmailAddress = string
+type Country = string
+
+let country = "France"
+let mail:EmailAddress = country  // possible car ce sont des string
+
+```
+
+--
+
+
+# Exercice 2
+## Union types
+
+
+---
 
 Customer
 orders
